@@ -1,0 +1,10 @@
+version: '2'
+services:
+  miniconda:
+    image: continuumio/miniconda3
+    container_name: miniconda
+    ports:
+      - "8666:8888"
+    command: bash -c "/opt/conda/bin/conda install jupyter -y --quiet && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
+    volumes:
+      - ./notebooksAnaconda:/opt/notebooks
